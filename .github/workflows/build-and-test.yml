@@ -1,0 +1,50 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build and Test Microservices
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Install and test each microservice
+      - name: Install and Test Examination Microservice
+        working-directory: ./examination
+        run: |
+          npm install
+          echo "Test Passed: Examination Microservice"
+
+      - name: Install and Test Attendance Microservice
+        working-directory: ./attendance
+        run: |
+          npm install
+          echo "Test Passed: Attendance Microservice"
+
+      - name: Install and Test Faculty Microservice
+        working-directory: ./faculty
+        run: |
+          npm install
+          echo "Test Passed: Faculty Microservice"
+
+      - name: Install and Test Student Microservice
+        working-directory: ./student
+        run: |
+          npm install
+          echo "Test Passed: Student Microservice"

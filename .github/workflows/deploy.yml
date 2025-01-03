@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Mock Deploy Microservices
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up SSH
+      - name: Set up SSH (Mock Step)
+        run: echo "Mock SSH setup completed"
+
+      # Mock deploy each microservice
+      - name: Mock Deploy Examination Microservice
+        run: "echo Mock deployment: Examination Microservice"
+
+      - name: Mock Deploy Attendance Microservice
+        run: "echo Mock deployment: Attendance Microservice"
+
+      - name: Mock Deploy Faculty Microservice
+        run: "echo Mock deployment: Faculty Microservice"
+
+      - name: Mock Deploy Student Microservice
+        run: "echo Mock deployment: Student Microservice"
